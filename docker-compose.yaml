@@ -1,13 +1,20 @@
-version: "3"
+version: "3.5"
 
 services:
-  orders:
+  service-registry:
     build: .
     image: "demo-app-service-registry"
     container_name: demo-app-service-registry
+    networks:
+      - demo-app-network
     volumes:
       - "./log:/app/log"
     ports:
-      - "8761:8080"
+      - "8761:8761"
+
+networks:
+  demo-app-network:
+    external: false
+    name: demo-app-network
 
 
