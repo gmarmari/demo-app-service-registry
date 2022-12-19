@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  orders:
+    build: .
+    image: "demo-app-service-registry"
+    container_name: demo-app-service-registry
+    volumes:
+      - "./log:/app/log"
+    ports:
+      - "8761:8080"
+
+
